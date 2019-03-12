@@ -3,7 +3,7 @@ class elementodiscreto
 {
 public:
 	double* centro;
-	double pos_raio;
+	//double pos_raio;
 
 	elementodiscreto();
 	~elementodiscreto();

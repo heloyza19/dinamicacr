@@ -10,9 +10,9 @@ class aresta
 {
 public:
 
-	vector <elementodiscreto*> elemento;   //elementosdiscretos do segmento
-	double raio;                          //raio dos elementos discretos
-	ponto* vertice;						 //vertices do segmento;
+	vector <elementodiscreto*> elemento;       //elementosdiscretos do segmento
+	double raio;                              //raio dos elementos discretos
+	ponto** vertice;						 //vertices do segmento;
 	
 
 	aresta();

@@ -4,11 +4,13 @@
 #include "densidade.h"
 #include "pontointerno.h"
 
-corporigido::corporigido(int np) : Fext(2), Fcont(2), velocidade(2), CM(2), posicao(np, 2)
+corporigido::corporigido(int np, double** pos, double* vel, double* F) : Fext(2), Fcont(2), velocidade(2), CM(2), posicao(np, 2)
 {
-	Fext.zeros();
+	posicao.setM(pos);
+	Fext.setV(F);
+	velocidade.setV(vel);
+
 	Fcont.zeros();
-	velocidade.zeros();
 	CM.zeros();
 	torque = 0;
 	W = 0;
@@ -26,14 +28,15 @@ corporigido::~corporigido()
 void corporigido::setsegmento(int Ned)
 {
 	aresta* segment = new aresta();
+	elementodiscreto *elem = new elementodiscreto();
 	double L,S;
 	int n;
+
 	for (int i = 0; i < posicao.size[0]; i++)
 	{
-		/*Xcentro[i] = new double[Ned];
-		Ycentro[i] = new double[Ned];
-		Pos_raio[i] = new double[Ned];
-		Pos_teta[i] = new double[Ned];*/
+	
+		aresta* segment = new aresta();
+		elementodiscreto *elem = new elementodiscreto();
 
 		if (i == posicao.size[0] - 1)
 		{
@@ -46,13 +49,13 @@ void corporigido::setsegmento(int Ned)
 
 		L = sqrt((posicao.getM()[n][0] - posicao.getM()[i][0])*(posicao.getM()[n][0] - posicao.getM()[i][0]) + (posicao.getM()[n][1] - posicao.getM()[i][1]) * (posicao.getM()[n][1] - posicao.getM()[i][1]));
 		segment->raio= 0.5*(L / Ned);
-		
+		segment->vertice[0][0] = posicao.getM()[i][0];
 
 		for (int j = 0; j < Ned; j++)
 		{
 			S = segment->raio + 2 * segment->raio * j;
-			segment->elemento.push_back ( posicao.getM()[i][0] + (S*((posicao.getM()[n][0] - posicao.getM()[i][0]) / L)));
-			segment->elemento.push_back( posicao.getM()[i][1] + (S*((posicao.getM()[n][1] - posicao.getM()[i][1]) / L));
+			elem->centro[0]= ( posicao.getM()[i][0] + (S*((posicao.getM()[n][0] - posicao.getM()[i][0]) / L)));
+			elem->centro[1]=( posicao.getM()[i][1] + (S*((posicao.getM()[n][1] - posicao.getM()[i][1]) / L)));
 		}
 
 	}

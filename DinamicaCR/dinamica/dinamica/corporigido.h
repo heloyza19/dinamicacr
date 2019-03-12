@@ -24,7 +24,7 @@ public:
 
 	vector <aresta*> segmento;
 
-	corporigido(int np);
+	corporigido (int np,double** pos, double* vel, double* F);
 	~corporigido();
 
 
