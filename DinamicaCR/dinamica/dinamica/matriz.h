@@ -3,9 +3,8 @@
 
 class matriz
 {
-private:	
-	double **M;
 public:
+	double **M;
 	int size[2];
 	matriz(int m, int n);
 	matriz(const matriz &);

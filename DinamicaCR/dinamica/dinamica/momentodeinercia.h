@@ -1,5 +1,6 @@
 #pragma once
 #include "matriz.h"
+#include "corporigido.h"
 #include "centrodemassa.h"
 
 double corporigido::momentodeinercia(matriz* massa_esp, int  nx, int ny, double dx, double dy, vetor CM, double xo, double yo)

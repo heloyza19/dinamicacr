@@ -4,9 +4,11 @@
 
 aresta::aresta()
 {
+	vertice = new ponto*[2]();
 }
 
 
 aresta::~aresta()
 {
+	delete[]vertice;
 }

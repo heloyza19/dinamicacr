@@ -1,8 +1,9 @@
 #pragma once
 #include "matriz.h"
+#include "corporigido.h"
 
-
-//
+double minimo(matriz Mat, int c);
+double maximo(matriz Mat, int c);
 
 int corporigido:: pontointerno(double pos_x, double pos_y, matriz posicao)
 {

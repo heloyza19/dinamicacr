@@ -1,8 +1,7 @@
 #include "pch.h"
-#include "corporigido.h"
+
 #include "centrodemassa.h"
-#include "densidade.h"
-#include "pontointerno.h"
+
 
 corporigido::corporigido(int np, double** pos, double* vel, double* F) : Fext(2), Fcont(2), velocidade(2), CM(2), posicao(np, 2)
 {
@@ -27,17 +26,17 @@ corporigido::~corporigido()
 
 void corporigido::setsegmento(int Ned)
 {
-	aresta* segment = new aresta();
-	elementodiscreto *elem = new elementodiscreto();
+	this->Ned = Ned;
 	double L,S;
 	int n;
 
 	for (int i = 0; i < posicao.size[0]; i++)
 	{
-	
-		aresta* segment = new aresta();
+		ponto *pont = new ponto();
+		ponto *pont2 = new ponto();
 		elementodiscreto *elem = new elementodiscreto();
-
+		aresta* segment = new aresta();
+			
 		if (i == posicao.size[0] - 1)
 		{
 			n = 0;
@@ -49,14 +48,26 @@ void corporigido::setsegmento(int Ned)
 
 		L = sqrt((posicao.getM()[n][0] - posicao.getM()[i][0])*(posicao.getM()[n][0] - posicao.getM()[i][0]) + (posicao.getM()[n][1] - posicao.getM()[i][1]) * (posicao.getM()[n][1] - posicao.getM()[i][1]));
 		segment->raio= 0.5*(L / Ned);
-		segment->vertice[0][0] = posicao.getM()[i][0];
+
+		pont->coordenada[0]= posicao.getM()[i][0];
+		pont->coordenada[1] = posicao.getM()[i][1];
+		segment->vertice[0]= pont;
+
+
+		pont2->coordenada[0] = posicao.getM()[n][0];
+		pont2->coordenada[1] = posicao.getM()[n][1];
+		segment->vertice[1] = pont2;
+
 
 		for (int j = 0; j < Ned; j++)
 		{
 			S = segment->raio + 2 * segment->raio * j;
 			elem->centro[0]= ( posicao.getM()[i][0] + (S*((posicao.getM()[n][0] - posicao.getM()[i][0]) / L)));
 			elem->centro[1]=( posicao.getM()[i][1] + (S*((posicao.getM()[n][1] - posicao.getM()[i][1]) / L)));
+			segment->elemento.push_back(elem);
 		}
+
+		segmento.push_back(segment);
 
 	}
 
@@ -66,19 +77,3 @@ void corporigido::setsegmento(int Ned)
 
 
 }
-
-
-//L = sqrt((corpo->posicao.getM()[n][0] - corpo->posicao.getM()[i][0])*(corpo->posicao.getM()[n][0] - corpo->posicao.getM()[i][0]) + (corpo->posicao.getM()[n][1] - corpo->posicao.getM()[i][1]) * (corpo->posicao.getM()[n][1] - corpo->posicao.getM()[i][1]));
-//Raio[i] = 0.5*(L / Ned);
-//
-//for (int j = 0; j < Ned; j++)
-//{
-//	S = Raio[i] + 2 * Raio[i] * j;
-//	Xcentro[i][j] = corpo->posicao.getM()[i][0] + (S*((corpo->posicao.getM()[n][0] - corpo->posicao.getM()[i][0]) / L));
-//	Ycentro[i][j] = corpo->posicao.getM()[i][1] + (S*((corpo->posicao.getM()[n][1] - corpo->posicao.getM()[i][1]) / L));
-//}
-//
-//	}
-//	xcentro.setM(Xcentro);
-//	ycentro.setM(Ycentro);
-//	raio.setV(Raio);

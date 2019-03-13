@@ -4,9 +4,11 @@
 
 elementodiscreto::elementodiscreto()
 {
+	centro = new double[2];
 }
 
 
 elementodiscreto::~elementodiscreto()
 {
+	delete[] centro;
 }

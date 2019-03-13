@@ -2,6 +2,7 @@
 
 #include "corporigido.h"
 #include "densidade.h"
+#include "momentodeinercia.h"
 
 void corporigido::centrodemassa()
 {

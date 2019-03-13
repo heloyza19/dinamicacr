@@ -1,0 +1,14 @@
+﻿  dinamica.cpp
+  sistema.cpp
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(24): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(26): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(40): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(68): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(69): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(77): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(78): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(88): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(80): warning C4101: 'a': variável local não referenciada
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(80): warning C4101: 'b': variável local não referenciada
+  Gerando Código...
+  dinamica.vcxproj -> C:\Users\heloy\Documents\GitHub\dinamicacr\DinamicaCR\dinamica\Debug\dinamica.exe
