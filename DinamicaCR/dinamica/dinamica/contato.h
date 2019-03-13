@@ -11,6 +11,9 @@ void sistema::contato()
 	double ang1x, ang1y, ang2x, and2y;
 	int Px, Py;
 	int* P;
+	double D;
+	int nc, na, ne;
+	int* ID;
 
 	vetor Vnormal(2);
 	vetor Fn(2);
@@ -112,12 +115,12 @@ void sistema::contato()
 				{
 					for (int B = c; B < d; B++)
 					{
-						if (mapa[Px + A][Py + B].element.size() > 0)
+						if (mapa[Px + A][Py + B].idelement.size() > 0)
 						{
-							for (int C = 0; C < mapa[Px + A][Py + B].element.size(); C++)
+							for (int C = 0; C < mapa[Px + A][Py + B].idelement.size(); C++)
 							{
-
-
+								ID = mapa[Px + A][Py + B].idelement.begin; //erro
+								D = sqrt(pow(corpo[i].segmento[j]->elemento[k]->centro[0]- corpo[i].segmento[j]->elemento[k]->centro[0], 2) + pow(corpo[i].segmento[j]->elemento[k]->centro[1], 2));
 
 
 
@@ -126,9 +129,9 @@ void sistema::contato()
 						}
 					}
 				}
-								D = sqrt(pow(element[i].xcentro.getM()[j][k] - element[E].xcentro.getM()[Na][Nba], 2) + pow(element[i].ycentro.getM()[j][k] - element[E].ycentro.getM()[Na][Nba], 2));
+								/*D = sqrt(pow(element[i].xcentro.getM()[j][k] - element[E].xcentro.getM()[Na][Nba], 2) + pow(element[i].ycentro.getM()[j][k] - element[E].ycentro.getM()[Na][Nba], 2));
 
-								if (D < (element[E].raio.getV()[Na] + element[i].rai
+								if (D < (element[E].raio.getV()[Na] + element[i].rai*/
 
 
 

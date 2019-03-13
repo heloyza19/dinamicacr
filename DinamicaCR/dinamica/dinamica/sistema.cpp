@@ -78,11 +78,12 @@ void sistema::setmapa()
 	int M = ceil(H / dx);
 	int* C = new int(2);
 	int a, b;
+	int *ID = new int[3];
 
 	mapa = new campo*[N];
 	for (int i = 0; i < N; i++)
 	{
-		mapa[N] = new campo[M];
+		mapa[i] = new campo[M];
 	}
 
 	for (int i = 0; i < corpo.size(); i++)
@@ -92,7 +93,8 @@ void sistema::setmapa()
 			for (int k = 0; k < corpo[i].Ned; k++)
 			{
 				C = mapeamento(corpo[i].segmento[j]->elemento[k]->centro[0], corpo[i].segmento[j]->elemento[k]->centro[1]);
-				mapa[C[0]][C[1]].element.push_back(corpo[i].segmento[j]->elemento[k]);
+				ID[0] = i; ID[1] = j; ID[2] = k;
+				mapa[C[0]][C[1]].idelement.push_back(ID);
 			}
 
 		}

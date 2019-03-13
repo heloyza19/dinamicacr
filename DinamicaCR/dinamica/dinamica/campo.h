@@ -6,7 +6,7 @@ using namespace std;
 class campo
 {
 public:
-	list <elementodiscreto*> element;
+	list <int*> idelement;
 
 	campo();
 	~campo();
