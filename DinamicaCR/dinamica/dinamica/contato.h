@@ -18,6 +18,9 @@ void sistema::contato()
 	vetor Vnormal(2);
 	vetor Fn(2);
 	vetor Fr(2);
+	vetor R1(2);
+	vetor Fnx(2);
+	vetor Fny(2);
 
 	for (int i = 0; i < corpo.size(); i++)
 	{
@@ -117,11 +120,170 @@ void sistema::contato()
 					{
 						if (mapa[Px + A][Py + B].idelement.size() > 0)
 						{
-							for (int C = 0; C < mapa[Px + A][Py + B].idelement.size(); C++)
-							{
-								ID = mapa[Px + A][Py + B].idelement.begin; //erro
-								D = sqrt(pow(corpo[i].segmento[j]->elemento[k]->centro[0]- corpo[i].segmento[j]->elemento[k]->centro[0], 2) + pow(corpo[i].segmento[j]->elemento[k]->centro[1], 2));
+							int k = 0;
+						 for (std::list<int*>::iterator it = mapa[Px + A][Py + B].idelement; it != mapa[Px + A][Py + B].idelement; it++)
+						{
 
+							 ID =(*it).idelement; //erro
+							 D = sqrt(pow(corpo[i].segmento[j]->elemento[k]->centro[0] - corpo[i].segmento[j]->elemento[k]->centro[0], 2) + pow(corpo[i].segmento[j]->elemento[k]->centro[1], 2));
+
+							 if (D < (corpo[i].segmento[j]->raio + corpo[ID[0]].segmento[ID[1]]->raio))
+							 {
+
+								 Vnormal.V[0] = corpo[i].segmento[j]->elemento[k]->centro[0]- corpo[ID[0]].segmento[ID[1]]->elemento[ID[2]]->centro[0];
+								 Vnormal.V[1] = corpo[i].segmento[j]->elemento[k]->centro[1] - corpo[ID[0]].segmento[ID[1]]->elemento[ID[2]]->centro[1];
+								 Fn = Fnormal(Vnormal, Cn, Kn, corpo[i].velocidade, corpo[ID[0]].velocidade, corpo[i].segmento[j]->raio,corpo[ID[0]].segmento[ID[1]]->raio, D);
+
+
+								 //corpo 1 
+
+
+								 R1.V[0] = corpo[i].segmento[j]->elemento[k]->centro[0]- corpo[ID[0]].segmento[ID[1]]->elemento[ID[2]]->centro[0];
+								 R1.V[0] = corpo[i].segmento[j]->elemento[k]->centro[1] - corpo[ID[0]].segmento[ID[1]]->elemento[ID[2]]->centro[1];
+							
+
+								 if (Fn.V[0] == 0)
+								 {
+									torque1x = 0;
+								 }
+								else
+								{
+
+									Fnx.V[0] = Fn.V[0];
+									Fnx.V[1] = Fn.V[1];
+									ang1x = acos((Fnx*R1) / (R1.norm()*Fnx.norm()));
+									torque1x = Fnx.norm()*R1.norm()*sin(ang1x);
+
+									if (Fnx.V[0] > 0 & corpo[i].segmento[j]->elemento[k]->centro[1] > corpo[i].CM.V[1])
+									{
+										 torque1x = -torque1x;
+									}
+									else if (Fnx.V[0] < 0 & corpo[i].segmento[j]->elemento[k]->centro[1] < corpo[i].CM.V[1])
+									{
+									torque1x = -torque1x;
+									 }
+
+
+
+									if (Fn.V[1] == 0)
+									{
+										torque1y = 0;
+									}
+									else
+									{
+										Fny.V[0] = 0;
+										Fny.V[1] = Fn.V[1];
+
+										ang1y = acos((Fny*R1) / (R1.norm()*Fny.norm()));
+										torque1y = Fny.norm()*R1.norm()*sin(ang1y);
+
+										if (Fny.V[1] > 0 &  corpo[i].segmento[j]->elemento[k]->centro[0]< corpo[i].CM.V[0])
+										{
+											torque1y = -torque1y;
+										}
+										else if (Fny.V[1] < 0 & corpo[i].segmento[j]->elemento[k]->centro[0] > corpo[i].CM.V[0])
+										{
+											torque1y = -torque1y;
+										}
+
+
+									}
+
+									corpo[i].torque += torque1x + torque1y;
+
+
+
+									//corpo2
+
+									R1.V[0] = corpo[ID[0]].segmento[ID[1]]->elemento[ID[2]]->centro[0] -corpo[ID[0]].CM.V[0] ;
+									R1.V[1] = corpo[ID[0]].segmento[ID[1]]->elemento[ID[2]]->centro[1] - corpo[ID[0]].CM.V[1];
+				
+
+									if (Fn.V[0] == 0)
+									{
+										torque2x = 0;
+									}
+									else
+									{
+										Fnx.V[0] = -Fn.V[0];
+										Fnx.V[1] = 0;
+
+										ang1x = acos((Fnx*R1) / (R1.norm()*Fnx.norm()));
+										torque2x = Fnx.norm()*R1.norm()*sin(ang1x);
+
+
+										if (Fnx.V[0] > 0 & corpo[i].segmento[j]->elemento[k]->centro[1] > corpo[i].CM.V[1])
+										{
+											torque2x = -torque2x;
+										}
+										else if (Fnx.V[0] < 0 & corpo[i].segmento[j]->elemento[k]->centro[1] < corpo[i].CM.V[1])
+										{
+											torque2x = -torque2x;
+										}
+									}
+
+
+								if (Fn.V[1] == 0)
+								{
+									torque2y = 0;
+								}
+								else
+								{
+
+									Fny.V[0] = 0;
+									Fny.V[1] = -Fn.V[1];
+
+									ang1y = acos((Fny*R1) / (R1.norm()*Fny.norm()));
+									torque2y = Fny.norm()*R1.norm()*sin(ang1y);
+
+
+									if (Fny.V[1] > 0 & element[E].xcentro.getM()[Na][Nba] < corpo[E].CM.V[0])
+									{
+										torque2y = -torque2y;
+									}
+									else if (Fny.V[1] < 0 & element[E].xcentro.getM()[Na][Nba] > corpo[E].CM.V[0])
+									{
+										torque2y = -torque2y;
+									}
+
+
+
+
+								}
+
+
+
+
+
+
+
+								 }
+
+
+
+
+
+
+
+
+							 }
+
+
+
+
+
+							 /*if (D < (element[E].raio.getV()[Na] + element[i].raio.getV()[j]))
+							 {
+								 Vn[0] = (element[i].xcentro.getM()[j][k] - element[E].xcentro.getM()[Na][Nba]) / (D);
+								 Vn[1] = (element[i].ycentro.getM()[j][k] - element[E].ycentro.getM()[Na][Nba]) / (D);
+								 Vnormal.setV(Vn);
+								 Fn = Fnormal(Vnormal, Cn, Kn, corpo[i].Vel, corpo[E].Vel, element[i].raio.getV()[j], element[E].raio.getV()[Na], D);*/
+
+
+
+							 k++;
+						}
+								
 
 
 
@@ -129,21 +291,12 @@ void sistema::contato()
 						}
 					}
 				}
-								/*D = sqrt(pow(element[i].xcentro.getM()[j][k] - element[E].xcentro.getM()[Na][Nba], 2) + pow(element[i].ycentro.getM()[j][k] - element[E].ycentro.getM()[Na][Nba], 2));
-
-								if (D < (element[E].raio.getV()[Na] + element[i].rai*/
-
-
-
-
-
 
 			}
 		}
 	}
 
 
-}
 
 
 vetor Fnormal(vetor Vnormal, double Cn, double Kn, vetor Vel1, vetor Vel2, double ra, double rb, double d)
