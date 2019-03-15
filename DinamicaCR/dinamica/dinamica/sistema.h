@@ -12,7 +12,7 @@ public:
 
 	double L, H, dx,dt, Kn, Cn;
 
-	sistema(double L, double H, double Kn, double Cn, double dt);
+	sistema(double L, double H, double Kn, double Cn, double e);
 	~sistema();
 
 	void setdx();

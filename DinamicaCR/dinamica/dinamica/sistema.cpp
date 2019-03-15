@@ -1,14 +1,29 @@
 #include "pch.h"
 #include "sistema.h"
+#include "id.h"
 #include <math.h>
 
-sistema::sistema(double L, double H, double Kn, double Cn, double dt)
+sistema::sistema(double L, double H, double Kn, double Cn, double e)
 {
 	this->L = L;
 	this->H = H;
 	this->Kn = Kn;
 	this->Cn = Cn;
-	this->dt = dt;
+	//this->dt = dt;
+
+	double massamax = 0;
+
+	for (int i = 0; i < corpo.size(); i++)
+	{
+		if (corpo[i].massa > massamax)
+		{
+			massamax = corpo[i].massa;
+		}
+
+	}
+
+	double tc = 2 * sqrt(massamax / Kn);    //tempo critico
+	dt = tc * e;
 }
 
 
@@ -78,7 +93,7 @@ void sistema::setmapa()
 	int M = ceil(H / dx);
 	int* C = new int(2);
 	int a, b;
-	int *ID = new int[3];
+	id ID;
 
 	mapa = new campo*[N];
 	for (int i = 0; i < N; i++)
@@ -93,7 +108,10 @@ void sistema::setmapa()
 			for (int k = 0; k < corpo[i].Ned; k++)
 			{
 				C = mapeamento(corpo[i].segmento[j]->elemento[k]->centro[0], corpo[i].segmento[j]->elemento[k]->centro[1]);
-				ID[0] = i; ID[1] = j; ID[2] = k;
+				ID.c = i;
+				ID.s = j;
+				ID.n = k;
+
 				mapa[C[0]][C[1]].idelement.push_back(ID);
 			}
 

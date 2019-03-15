@@ -1,12 +1,12 @@
 #pragma once
 #include <list>
-#include "elementodiscreto.h"
+#include "id.h"
 using namespace std;
 
 class campo
 {
 public:
-	list <int*> idelement;
+	list <id> idelement;
 
 	campo();
 	~campo();

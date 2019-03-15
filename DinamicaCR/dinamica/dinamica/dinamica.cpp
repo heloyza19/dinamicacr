@@ -46,9 +46,10 @@ int main()
 
 	corpo2->posicao.print();
 	corpo2->CM.print();
+	double e = 0.1;
 
-
-
+	sistema* Dados = new sistema(L,H,Kn,Cn,e);
+	cout << Dados->dt << endl;
 
 
 
