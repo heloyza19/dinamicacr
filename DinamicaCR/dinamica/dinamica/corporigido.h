@@ -7,14 +7,15 @@ private:
 	double momentodeinercia(matriz* massa_esp, int  nx, int ny, double dx, double dy, vetor CM, double xo, double yo);
 	double densidade(matriz* massa_esp, matriz posicao, int  nx, int ny, double dx, double dy, double xo, double yo);
 	int pontointerno(double pos_x, double pos_y, matriz posicao);
-public:
-	
 
+public:
 	matriz posicao;
 	vetor velocidade;
 	vetor Fext;
 	vetor Fcont;
 	vetor CM;
+
+	vetor pos_raio;
 
 	double I;
 	double massa;

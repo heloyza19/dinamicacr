@@ -7,18 +7,18 @@
 class sistema
 {
 public:
-	vector <corporigido> corpo;
+	vector <corporigido*> corpo;  
 	campo** mapa;
 
 	double L, H, dx,dt, Kn, Cn;
 
-	sistema(double L, double H, double Kn, double Cn, double e);
+	sistema(double L, double H, double Kn, double Cn);
 	~sistema();
 
-	void setdx();
+	void setdx(double e);
 	void integracao();
 	int* mapeamento(double x, double y);
-	void contato();
+	double contato();
 	void setmapa();
 
 };

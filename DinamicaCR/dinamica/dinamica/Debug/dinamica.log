@@ -1,2 +1,29 @@
 ﻿  dinamica.cpp
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(69): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(80): warning C4018: '<': incompatibilidade de signed/unsigned
+  sistema.cpp
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(26): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(166): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(170): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(189): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(193): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(220): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(224): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(246): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(250): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(11): warning C4101: 'and2y': variável local não referenciada
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(16): warning C4101: 'ID': variável local não referenciada
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(11): warning C4101: 'ang2x': variável local não referenciada
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(27): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(40): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(42): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(56): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(102): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(103): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(111): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(112): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(123): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(114): warning C4101: 'a': variável local não referenciada
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(114): warning C4101: 'b': variável local não referenciada
+  Gerando Código...
   dinamica.vcxproj -> C:\Users\heloy\Documents\GitHub\dinamicacr\DinamicaCR\dinamica\Debug\dinamica.exe
