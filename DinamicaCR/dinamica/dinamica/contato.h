@@ -140,9 +140,9 @@ double sistema::contato()
 										double norma = sqrt(pow(corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0], 2) + pow((corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1]), 2));
 										Vnormal.V[0] = (corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0])/norma;
 										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1])/norma;
-										
+										Vnormal.print();
 										Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, corpo[nc]->velocidade, corpo[i]->segmento[j]->raio, corpo[nc]->segmento[na]->raio, D);
-
+										Fn.print();
 
 										//corpo 1
 
