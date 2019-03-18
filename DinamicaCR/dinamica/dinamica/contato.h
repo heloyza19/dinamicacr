@@ -121,7 +121,6 @@ double sistema::contato()
 					{
 						if (mapa[Px + A][Py + B].idelement.size() > 0)
 						{
-							int k = 0;
 							for (std::list<id>::iterator it = mapa[Px + A][Py + B].idelement.begin(); it != mapa[Px + A][Py + B].idelement.end(); it++)
 							{
 
@@ -137,9 +136,9 @@ double sistema::contato()
 									{
 										
 										
-										double norma = sqrt(pow(corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0], 2) + pow((corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1]), 2));
-										Vnormal.V[0] = (corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0])/norma;
-										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1])/norma;
+
+										Vnormal.V[0] = (corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0])/D;
+										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1])/D;
 										Vnormal.print();
 										Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, corpo[nc]->velocidade, corpo[i]->segmento[j]->raio, corpo[nc]->segmento[na]->raio, D);
 										Fn.print();
@@ -270,7 +269,7 @@ double sistema::contato()
 								}
 
 							}
-							 k++;
+							// k++;
 						}
 								
 

@@ -7,7 +7,7 @@ int main()
 	int Np = 4;            //numero de vertices
 	int Ned = 2;	      //numero de elementos discretos
 
-	double times = 0.05;
+	double times = 0.01;
 	double Cn = 0;       //constante de amortecimento
 	double Kn = 10000;  //constante da mola
 	double L = 7;
@@ -27,13 +27,13 @@ int main()
 		m2[i] = new double[2];
 	}
 	m[0][0] = 2; m[0][1] = 1;
-	m[1][0] = 2; m[1][1] = 4;
-	m[2][0] = 3; m[2][1] = 4;
+	m[1][0] = 2; m[1][1] = 2;
+	m[2][0] = 3; m[2][1] = 2;
 	m[3][0] = 3; m[3][1] = 1;
 
 	m2[0][0] =3.5; m2[0][1] = 1;
-	m2[1][0] =3.5; m2[1][1] = 4;
-	m2[2][0] =4.5; m2[2][1] = 4;
+	m2[1][0] =3.5; m2[1][1] = 2;
+	m2[2][0] =4.5; m2[2][1] = 2;
 	m2[3][0] =4.5; m2[3][1] = 1;
 
 	corporigido* corpo1 = new corporigido(Np,m,v,f);

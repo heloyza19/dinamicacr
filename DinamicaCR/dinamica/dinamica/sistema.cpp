@@ -127,8 +127,7 @@ void sistema::setmapa()
 {
 	int N = ceil(L / dx);
 	int M = ceil(H / dx);
-	int* C = new int(2);
-	int a, b;
+	int* C;
 	id ID;
 
 	mapa = new campo*[N];
@@ -139,7 +138,7 @@ void sistema::setmapa()
 
 	for (int i = 0; i < corpo.size(); i++)
 	{
-		for (int j = 0; j < corpo[i]->posicao.size[0]; j++)
+		for (int j = 0; j < corpo[i]->segmento.size(); j++)
 		{
 			for (int k = 0; k < corpo[i]->Ned; k++)
 			{

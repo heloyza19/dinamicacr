@@ -9,7 +9,7 @@ corporigido::corporigido(int np, double** pos, double* vel, double* F) : Fext(2)
 	Fext.setV(F);
 	velocidade.setV(vel);
 
-	Fcont.zeros();
+	Fcont.zeros();  
 	CM.zeros();
 	pos_raio.zeros();
 	torque = 0;
