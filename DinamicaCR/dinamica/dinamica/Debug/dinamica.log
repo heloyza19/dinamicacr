@@ -1,4 +1,4 @@
 ﻿  dinamica.cpp
-c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(72): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(83): warning C4018: '<': incompatibilidade de signed/unsigned
-  dinamica.vcxproj -> C:\Users\Heloyza\Documents\GitHub\Dinamica-2D-cpp\dinamicacr\DinamicaCR\dinamica\Debug\dinamica.exe
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(74): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(87): warning C4018: '<': incompatibilidade de signed/unsigned
+  dinamica.vcxproj -> C:\Users\heloy\Documents\GitHub\dinamicacr\DinamicaCR\dinamica\Debug\dinamica.exe

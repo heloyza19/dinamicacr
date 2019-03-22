@@ -8,20 +8,23 @@ double sistema::contato()
 	double Eelas = 0;
 	double torque1x = 0, torque1y = 0;
 	double torque2x = 0, torque2y = 0;
-	double ang1x, ang1y, ang2x, and2y;
+	double ang1x, ang1y, ang2x, ang2y;
 	int Px, Py;
 	int* P;
 	double D;
 	int nc, na, ne;
 	int* ID;
 
-	vetor Vnormal(2), Fn(2), Fr(2),R1(2),Fnx(2),Fny(2);
+	vetor Vnormal(2), Fn(2), Fr(2),R1(2),R2(2),Fnx(2),Fny(2), F2nx(2), F2ny(2);
 	Vnormal.zeros();
 	Fn.zeros();
 	Fr.zeros();
 	R1.zeros();
+	R2.zeros();
 	Fnx.zeros();
 	Fny.zeros();
+	F2nx.zeros();
+	F2ny.zeros();
 
 	for (int i = 0; i < corpo.size(); i++)
 	{
@@ -125,7 +128,7 @@ double sistema::contato()
 							{
 
 								nc = (*it).c;     //n corpo rigido
-								if (nc > i)
+								if (nc < i)   //analisar
 								{
 									na = (*it).s;  //n aresta
 									ne = (*it).n;   //n do elementodiscreto
@@ -139,9 +142,8 @@ double sistema::contato()
 
 										Vnormal.V[0] = (corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0])/D;
 										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1])/D;
-										Vnormal.print();
+									
 										Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, corpo[nc]->velocidade, corpo[i]->segmento[j]->raio, corpo[nc]->segmento[na]->raio, D);
-										Fn.print();
 
 										//corpo 1
 
@@ -151,7 +153,7 @@ double sistema::contato()
 
 
 										//eixo x
-										if (Fn.V[0] = 0)
+										if (Fn.V[0] == 0)
 										{
 											torque1x = 0;
 										}
@@ -201,26 +203,26 @@ double sistema::contato()
 
 
 										//corpo 2
-										R1.V[0] = corpo[nc]->segmento[na]->elemento[ne]->centro[0] - corpo[nc]->CM.V[0];
-										R1.V[1] = corpo[nc]->segmento[na]->elemento[ne]->centro[1] - corpo[nc]->CM.V[1];
-
+										R2.V[0] = corpo[nc]->segmento[na]->elemento[ne]->centro[0] - corpo[nc]->CM.V[0];
+										R2.V[1] = corpo[nc]->segmento[na]->elemento[ne]->centro[1] - corpo[nc]->CM.V[1];
+										
 										if (Fn.V[0] == 0)
 										{
 											torque2x = 0;
 										}
 										else
 										{
-											Fnx.V[0] = -Fn.V[0];
-											Fnx.V[1] = 0;
+											F2nx.V[0] = -Fn.V[0];
+											F2nx.V[1] = 0;
 
-											ang1x = acos((Fnx*R1) / (R1.norm()*Fnx.norm()));
-											torque2x = Fnx.norm()*R1.norm()*sin(ang1x);
+											ang2x = acos((F2nx*R2) / (R2.norm()*F2nx.norm()));
+											torque2x = F2nx.norm()*R2.norm()*sin(ang2x);
 
-											if (Fnx.V[0] > 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[1])
+											if (F2nx.V[0] > 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[1])
 											{
 												torque2x = -torque2x;
 											}
-											else if (Fnx.V[0] < 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] < corpo[nc]->CM.V[1])
+											else if (F2nx.V[0] < 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] < corpo[nc]->CM.V[1])
 											{
 												torque2x = -torque2x;
 											}
@@ -236,17 +238,17 @@ double sistema::contato()
 										}
 										else
 										{
-											Fny.V[0] = 0;
-											Fny.V[1] = -Fn.V[1];
+											F2ny.V[0] = 0;
+											F2ny.V[1] = -Fn.V[1];
 
-											ang1y = acos((Fny*R1) / (R1.norm()*Fny.norm()));
-											torque2y = Fny.norm()*R1.norm()*sin(ang1y);
+											ang2y = acos((F2ny*R2) / (R2.norm()*F2ny.norm()));
+											torque2y = F2ny.norm()*R2.norm()*sin(ang2y);
 
-											if (Fny.V[1] > 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[0] < corpo[nc]->CM.V[0])
+											if (F2ny.V[1] > 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[0] < corpo[nc]->CM.V[0])
 											{
 												torque2y = -torque2y;
 											}
-											else if (Fny.V[1] < 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[0])
+											else if (F2ny.V[1] < 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[0])
 											{
 												torque2y = -torque2y;
 											}
@@ -269,7 +271,7 @@ double sistema::contato()
 								}
 
 							}
-							// k++;
+						
 						}
 								
 

@@ -56,7 +56,8 @@ void sistema::integracao()
 	for (int i = 0; i < corpo.size(); i++)
 	{
 		
-
+		corpo[i]->velocidade = (corpo[i]->Fcont + corpo[i]->Fext)*(dt / corpo[i]->massa) + corpo[i]->velocidade;
+		corpo[i]->W = corpo[i]->torque*(dt / corpo[i]->I) + corpo[i]->W;
 
 		//Rotação
 
@@ -65,36 +66,22 @@ void sistema::integracao()
 
 			//x1=x0*cos(dteta)-y0*sin(dteta)
 			//y1=y0*cos(dteta)+x0*sin(dteta)
-
-			corpo[i]->posicao.M[j][0] = corpo[i]->posicao.M[j][0] * cos(corpo[i]->W*dt)- corpo[i]->posicao.M[j][1]*sin(corpo[i]->W*dt)+ corpo[i]->velocidade.V[0]*dt;
+			
+			corpo[i]->posicao.M[j][0] = corpo[i]->posicao.M[j][0] * cos(corpo[i]->W*dt) - corpo[i]->posicao.M[j][1] * sin(corpo[i]->W*dt) +corpo[i]->velocidade.V[0] * dt;
 			corpo[i]->posicao.M[j][1] = corpo[i]->posicao.M[j][1] * cos(corpo[i]->W*dt) + corpo[i]->posicao.M[j][0] * sin(corpo[i]->W*dt)+corpo[i]->velocidade.V[1]*dt;
 			
-		/*	double ac= dt / corpo[i]->massa;
-			double k1 = corpo[i]->velocidade.V[0];
-			double k2 = corpo[i]->velocidade.V[0] + (corpo[i]->Fcont.V[0])*ac;
 
-			corpo[i]->posicao.M[j][0]= corpo[i]->posicao.M[j][0]+0.5*(k1+k2)*dt;
 
-			k1 = corpo[i]->velocidade.V[1];
-			k2 = corpo[i]->velocidade.V[1] + (corpo[i]->Fcont.V[1])*ac;
-
-			corpo[i]->posicao.M[j][1] = corpo[i]->posicao.M[j][1] + 0.5*(k1 + k2)*dt;*/
-
-			for (int k = 0; k < corpo[i]->Ned; k++)
+			for (int k = 0; k < corpo[i]->segmento[j]->elemento.size(); k++)
 			{
 				x = corpo[i]->segmento[j]->elemento[k]->centro[0];
 				y = corpo[i]->segmento[j]->elemento[k]->centro[1];
-
+	
+				
 				corpo[i]->segmento[j]->elemento[k]->centro[0] = x * cos(corpo[i]->W*dt) - y * sin(corpo[i]->W*dt)+corpo[i]->velocidade.V[0]*dt;
 				corpo[i]->segmento[j]->elemento[k]->centro[1] = y * cos(corpo[i]->W*dt) + x * sin(corpo[i]->W*dt) + corpo[i]->velocidade.V[1]*dt;
-				//k1 = corpo[i]->velocidade.V[0];
-				//k2 = corpo[i]->velocidade.V[0] + (corpo[i]->Fcont.V[0])*ac;
-				//corpo[i]->segmento[j]->elemento[k]->centro[0] = x + 0.5*(k1 + k2)*dt;
-
-				//k1 = corpo[i]->velocidade.V[1];
-				//k2 = corpo[i]->velocidade.V[1] + (corpo[i]->Fcont.V[1])*ac;
-
-				//corpo[i]->segmento[j]->elemento[k]->centro[1] = y + 0.5*(k1 + k2)*dt;
+				
+			
 			}
 
 
@@ -103,11 +90,7 @@ void sistema::integracao()
 		//Translacao
 		corpo[i]->CM = corpo[i]->velocidade*dt + corpo[i]->CM;
 
-		corpo[i]->velocidade = (corpo[i]->Fcont + corpo[i]->Fext)*(dt / corpo[i]->massa) + corpo[i]->velocidade;
-		corpo[i]->W = corpo[i]->torque*(dt / corpo[i]->I) + corpo[i]->W;
-
-
-
+		
 		corpo[i]->Fcont.zeros();
 		corpo[i]->torque = 0;
 	}

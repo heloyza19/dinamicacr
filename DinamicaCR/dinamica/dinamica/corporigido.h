@@ -15,7 +15,7 @@ public:
 	vetor Fcont;
 	vetor CM;
 
-	vetor pos_raio;
+	vetor pos_raio;  //retirar
 
 	double I;
 	double massa;

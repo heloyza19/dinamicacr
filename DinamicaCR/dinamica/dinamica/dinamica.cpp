@@ -9,14 +9,15 @@ int main()
 
 	double times = 0.01;
 	double Cn = 0;       //constante de amortecimento
-	double Kn = 10000;  //constante da mola
+	double Kn = 100000;  //constante da mola
 	double L = 7;
 	double H = 6.5;
 
+
 	double** m = new double*[Np];
 	double** m2 = new double*[Np];
-	double* v = new double[2]{25,0};
-	double* v2 = new double[2]{-25,0 };
+	double* v = new double[2]{40,0};
+	double* v2 = new double[2]{-40,0 };
 	double* f = new double[2]{0,0};
 
 	
@@ -26,10 +27,10 @@ int main()
 		m[i] = new double[2];
 		m2[i] = new double[2];
 	}
-	m[0][0] = 2; m[0][1] = 1;
-	m[1][0] = 2; m[1][1] = 2;
-	m[2][0] = 3; m[2][1] = 2;
-	m[3][0] = 3; m[3][1] = 1;
+	m[0][0] = 2; m[0][1] = 2;
+	m[1][0] = 2; m[1][1] = 3;
+	m[2][0] = 3; m[2][1] = 3;
+	m[3][0] = 3; m[3][1] = 2;
 
 	m2[0][0] =3.5; m2[0][1] = 1;
 	m2[1][0] =3.5; m2[1][1] = 2;
@@ -42,10 +43,10 @@ int main()
 	corpo1->setsegmento(Ned);
 
 	corpo1->posicao.print();
-	corpo1->CM.print();
 	corpo1->velocidade.print();
 	cout <<"massa="<< corpo1->massa << endl;
 	cout << "I=" << corpo1->I << endl;
+
 	corporigido* corpo2 = new corporigido(Np, m2, v, f);
 	corpo2->velocidade.setV(v2);
 	corpo2->centrodemassa();
@@ -57,7 +58,7 @@ int main()
 	cout << "massa=" << corpo2->massa << endl;
 	cout << "I=" << corpo2->I << endl;
 	
-	double e = 0.05;
+	double e = 0.0001;    //percentual do tempo crítico
 
 	sistema* Dados = new sistema(L,H,Kn,Cn);
 	
@@ -65,9 +66,10 @@ int main()
 	Dados->corpo.push_back(corpo2);
 	Dados->setdx(e);
 	Dados->setmapa();
+
 	cout << "dx=" << Dados->dx << endl;
 	cout <<"dt= "<< Dados->dt << endl;
-	cout << "tc" << Dados->dt / e<<endl;
+	cout << "tc= " << Dados->dt / e<<endl;
 
 	int temp = ceil(times / Dados->dt);
 	double* Eelas = new double[temp];
@@ -76,9 +78,11 @@ int main()
 
 	for (int t=0; t < temp; t++)
 	{	
+
 		Ek[t] = 0;
 		Ekr[t] = 0;
 		Eelas[t]=Dados->contato();
+
 		
 		for (int i = 0; i < Dados->corpo.size(); i++)
 		{
@@ -86,21 +90,25 @@ int main()
 			Ekr[t] += 0.5*Dados->corpo[i]->I*pow(Dados->corpo[i]->W,2);
 			
 		}
-	
+		
+		//cout <<"Energia cinética= "<< Ek[t]<<" Eelas= "<<Eelas[t]<<" Ekr= "<<Ekr[t] << endl;
 		
 		Dados->integracao();
 		Dados->setmapa();
 
 	
+
 		
 
 	}
 
 
 	Dados->corpo[0]->posicao.print();
-
 	Dados->corpo[1]->posicao.print();
 
+	cout << Dados->corpo[0]->W << " " << Dados->corpo[1]->W << endl;
+	Dados->corpo[0]->velocidade.print();
+	Dados->corpo[1]->velocidade.print();
 
 
 

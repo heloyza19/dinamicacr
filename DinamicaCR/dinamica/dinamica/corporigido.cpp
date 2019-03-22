@@ -34,7 +34,6 @@ void corporigido::setsegmento(int Ned)
 	{
 		ponto *pont = new ponto();
 		ponto *pont2 = new ponto();
-		elementodiscreto *elem = new elementodiscreto();
 		aresta* segment = new aresta();
 			
 		if (i == posicao.size[0] - 1)
@@ -61,6 +60,7 @@ void corporigido::setsegmento(int Ned)
 
 		for (int j = 0; j < Ned; j++)
 		{
+			elementodiscreto *elem = new elementodiscreto();
 			S = segment->raio + 2 * segment->raio * j;
 			elem->centro[0]= ( posicao.getM()[i][0] + (S*((posicao.getM()[n][0] - posicao.getM()[i][0]) / L)));
 			elem->centro[1]=( posicao.getM()[i][1] + (S*((posicao.getM()[n][1] - posicao.getM()[i][1]) / L)));
