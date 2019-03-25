@@ -7,12 +7,12 @@ int main()
 	int Np = 4;            //numero de vertices
 	int Ned = 2;	      //numero de elementos discretos
 
-	double times = 0.01;
+	double times = 0.03;
 	double Cn = 0;       //constante de amortecimento
-	double Kn = 100000;  //constante da mola
+	double Kn = 1000;  //constante da mola
 	double L = 7;
 	double H = 6.5;
-
+	double e = 0.0001;    //percentual do tempo crítico
 
 	double** m = new double*[Np];
 	double** m2 = new double*[Np];
@@ -57,8 +57,7 @@ int main()
 	corpo2->velocidade.print();
 	cout << "massa=" << corpo2->massa << endl;
 	cout << "I=" << corpo2->I << endl;
-	
-	double e = 0.0001;    //percentual do tempo crítico
+
 
 	sistema* Dados = new sistema(L,H,Kn,Cn);
 	
@@ -101,7 +100,8 @@ int main()
 		
 
 	}
-
+	cout << "energia final k r e= " << Ek[0]<<" "<< Ekr[0]<<" "<< Eelas[0] << endl;
+	cout << "energia final k r e= " << Ek[temp - 2]<< " "<< Ekr[temp-2]<<" "<<Eelas[temp-2]<<endl ;
 
 	Dados->corpo[0]->posicao.print();
 	Dados->corpo[1]->posicao.print();
