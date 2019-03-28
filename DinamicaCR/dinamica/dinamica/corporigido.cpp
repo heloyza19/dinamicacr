@@ -3,19 +3,20 @@
 #include "centrodemassa.h"
 
 
-corporigido::corporigido(int np, double** pos, double* vel, double* F) : Fext(2), Fcont(2), velocidade(2), CM(2), posicao(np, 2), pos_raio(np)
+corporigido::corporigido(int np, double** pos, double* vel, double* F, double W) : Fext(2), Fcont(2), velocidade(2), CM(2), posicao(np, 2)
 {
+	this->W = W;
 	posicao.setM(pos);
 	Fext.setV(F);
 	velocidade.setV(vel);
 
 	Fcont.zeros();  
 	CM.zeros();
-	pos_raio.zeros();
+
 	torque = 0;
-	W = 0;
 	I = 0;
 	massa = 0;
+
 }
 
 

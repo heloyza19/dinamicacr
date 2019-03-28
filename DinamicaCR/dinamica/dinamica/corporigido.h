@@ -15,7 +15,7 @@ public:
 	vetor Fcont;
 	vetor CM;
 
-	vetor pos_raio;  //retirar
+	//vetor pos_raio;  //retirar
 
 	double I;
 	double massa;
@@ -25,7 +25,7 @@ public:
 
 	vector <aresta*> segmento;
 
-	corporigido (int np,double** pos, double* vel, double* F);
+	corporigido (int np,double** pos, double* vel, double* F, double W);
 	~corporigido();
 
 	void centrodemassa();

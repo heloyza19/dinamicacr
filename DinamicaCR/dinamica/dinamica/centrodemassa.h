@@ -51,11 +51,6 @@ void corporigido::centrodemassa()
 	I = momentodeinercia(massa_esp, nx, ny, dx, dy, CM, minimo(posicao, 0) - dx, minimo(posicao, 1) - dy);
 
 
-	for (int i = 0; i < posicao.size[0]; i++)
-	{
-		pos_raio.V[i] = sqrt(pow(posicao.getM()[i][0] - CM.V[0], 2)+ pow(posicao.getM()[i][1] - CM.V[1], 2));
-
-	}
 
 
 

@@ -5,12 +5,14 @@
 #include "id.h"
 #include <math.h>
 #include <iostream>
-sistema::sistema(double L, double H, double Kn, double Cn)
+
+
+sistema::sistema()
 {
-	this->L = L;
+	/*this->L = L;
 	this->H = H;
 	this->Kn = Kn;
-	this->Cn = Cn;
+	this->Cn = Cn;*/
 
 }
 
@@ -20,7 +22,7 @@ sistema::~sistema()
 	delete[] mapa;
 }
 
-void sistema::setdx(double e)
+void sistema::setdx()
 {
 	double massamax = 0;
 

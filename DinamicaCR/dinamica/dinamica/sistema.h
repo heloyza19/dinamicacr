@@ -10,12 +10,12 @@ public:
 	vector <corporigido*> corpo;  
 	campo** mapa;
 
-	double L, H, dx,dt, Kn, Cn;
-
-	sistema(double L, double H, double Kn, double Cn);
+	double L, H, dx,dt, Kn, Cn, times;
+	double e;
+	sistema();
 	~sistema();
 
-	void setdx(double e);
+	void setdx();
 	void integracao();
 	int* mapeamento(double x, double y);
 	double contato();

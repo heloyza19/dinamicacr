@@ -159,6 +159,7 @@
     <ClInclude Include="densidade.h" />
     <ClInclude Include="elementodiscreto.h" />
     <ClInclude Include="id.h" />
+    <ClInclude Include="leituradedados.h" />
     <ClInclude Include="matriz.h" />
     <ClInclude Include="momentodeinercia.h" />
     <ClInclude Include="pch.h" />

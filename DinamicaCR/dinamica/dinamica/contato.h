@@ -6,8 +6,8 @@ vetor Fnormal(vetor Vnormal, double Cn, double Kn, vetor Vel1, vetor Vel2, doubl
 double sistema::contato()
 {
 	double Eelas = 0;
-	double torque1x = 0, torque1y = 0;
-	double torque2x = 0, torque2y = 0;
+	double torque1 = 0;
+	double torque2 = 0;
 	double ang1x, ang1y, ang2x, ang2y;
 	int Px, Py;
 	int* P;
@@ -33,36 +33,36 @@ double sistema::contato()
 			for (int k = 0; k < corpo[i]->Ned; k++)
 			{
 
-				if (corpo[i]->segmento[j]->elemento[k]->centro[0]<= corpo[i]->segmento[j]->raio)
+				if (corpo[i]->segmento[j]->elemento[k]->centro[0] <= corpo[i]->segmento[j]->raio)
 				{
 					vetor Vel2(2);
 					Vel2.zeros();
 					Vnormal.V[0] = 1;
 					Vnormal.V[1] = 0;
-					
+
 					Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, Vel2, corpo[i]->segmento[j]->raio, 0, corpo[i]->segmento[j]->elemento[k]->centro[0]);
 					Fr = corpo[i]->Fcont + Fn;
 					corpo[i]->Fcont.setV(Fr.getV());
 					Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio - corpo[i]->segmento[j]->elemento[k]->centro[0], 2);
-	
+
 				}
 
 
-				else if (corpo[i]->segmento[j]->elemento[k]->centro[0] >= L- corpo[i]->segmento[j]->raio)
+				else if (corpo[i]->segmento[j]->elemento[k]->centro[0] >= L - corpo[i]->segmento[j]->raio)
 				{
 					vetor Vel2(2);
 					Vel2.zeros();
 					Vnormal.V[0] = -1;
 					Vnormal.V[1] = 0;
 
-					Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, Vel2, corpo[i]->segmento[j]->raio, 0,L- corpo[i]->segmento[j]->elemento[k]->centro[0]);
+					Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, Vel2, corpo[i]->segmento[j]->raio, 0, L - corpo[i]->segmento[j]->elemento[k]->centro[0]);
 					Fr = corpo[i]->Fcont + Fn;
 					corpo[i]->Fcont.setV(Fr.getV());
-					Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio - L-corpo[i]->segmento[j]->elemento[k]->centro[0], 2);
+					Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio - L - corpo[i]->segmento[j]->elemento[k]->centro[0], 2);
 
 				}
 
-				if (corpo[i]->segmento[j]->elemento[k]->centro[1]<= corpo[i]->segmento[j]->raio)
+				if (corpo[i]->segmento[j]->elemento[k]->centro[1] <= corpo[i]->segmento[j]->raio)
 				{
 					vetor Vel2(2);
 					Vel2.zeros();
@@ -71,25 +71,25 @@ double sistema::contato()
 					Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, Vel2, corpo[i]->segmento[j]->raio, 0, corpo[i]->segmento[j]->elemento[k]->centro[1]);
 					Fr = corpo[i]->Fcont + Fn;
 					corpo[i]->Fcont.setV(Fr.getV());
-					Eelas += 0.5*Kn*pow( corpo[i]->segmento[j]->raio - corpo[i]->segmento[j]->elemento[k]->centro[1], 2);
+					Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio - corpo[i]->segmento[j]->elemento[k]->centro[1], 2);
 
 				}
 
-				else if (corpo[i]->segmento[j]->elemento[k]->centro[1] >= H- corpo[i]->segmento[j]->raio)
+				else if (corpo[i]->segmento[j]->elemento[k]->centro[1] >= H - corpo[i]->segmento[j]->raio)
 				{
 					vetor Vel2(2);
 					Vel2.zeros();
 					Vnormal.V[0] = 0;
 					Vnormal.V[1] = -1;
-					Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, Vel2, corpo[i]->segmento[j]->raio, 0,H- corpo[i]->segmento[j]->elemento[k]->centro[1]);
+					Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, Vel2, corpo[i]->segmento[j]->raio, 0, H - corpo[i]->segmento[j]->elemento[k]->centro[1]);
 					Fr = corpo[i]->Fcont + Fn;
 					corpo[i]->Fcont.setV(Fr.getV());
-					Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio-H - corpo[i]->segmento[j]->elemento[k]->centro[1], 2);
+					Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio - H - corpo[i]->segmento[j]->elemento[k]->centro[1], 2);
 
 				}
 
 
-				 //colisão entre ED
+				//colisão entre ED
 
 				P = mapeamento(corpo[i]->segmento[j]->elemento[k]->centro[0], corpo[i]->segmento[j]->elemento[k]->centro[1]);
 				Px = P[0];
@@ -137,12 +137,12 @@ double sistema::contato()
 
 									if (D < (corpo[i]->segmento[j]->raio + corpo[nc]->segmento[na]->raio))
 									{
-										
-										
 
-										Vnormal.V[0] = (corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0])/D;
-										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1])/D;
-									
+
+
+										Vnormal.V[0] = (corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0]) / D;
+										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1]) / D;
+
 										Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, corpo[nc]->velocidade, corpo[i]->segmento[j]->raio, corpo[nc]->segmento[na]->raio, D);
 
 										//corpo 1
@@ -153,136 +153,102 @@ double sistema::contato()
 
 
 										//eixo x
-										if (Fn.V[0] == 0)
+										if (Fn.norm() != 0)
 										{
-											torque1x = 0;
-										}
-										else
-										{
-											Fnx.V[0] = Fn.V[0];
-											Fnx.V[1] = 0;
-											ang1x = acos((Fnx*R1) / (R1.norm()*Fnx.norm()));
-											torque1x = Fnx.norm()*R1.norm()*sin(ang1x);
 
-											if (Fnx.V[0] > 0 & corpo[i]->segmento[j]->elemento[k]->centro[1] > corpo[i]->CM.V[1])
+											ang1x = acos((Fn*R1) / (R1.norm()*Fn.norm()));
+											torque1 = Fn.norm()*R1.norm()*sin(ang1x);
+
+											if (Fn.V[0] > 0 & corpo[i]->segmento[j]->elemento[k]->centro[1] > corpo[i]->CM.V[1])
 											{
-												torque1x = -torque1x;
+												torque1 = -torque1;
 											}
-											else if (Fnx.V[0] < 0 & corpo[i]->segmento[j]->elemento[k]->centro[1] < corpo[i]->CM.V[1])
+											else if (Fn.V[0] < 0 & corpo[i]->segmento[j]->elemento[k]->centro[1] < corpo[i]->CM.V[1])
 											{
-												torque1x = -torque1x;
-											}
-										}
-
-										//eixo y
-										if (Fn.V[1] == 0)
-										{
-											torque1y = 0;
-										}
-										else
-										{
-											Fny.V[0] = 0;
-											Fny.V[1] = Fn.V[1];
-
-											ang1y = acos((Fny*R1) / (R1.norm()*Fny.norm()));
-											torque1y = Fny.norm()*R1.norm()*sin(ang1y);
-
-											if (Fny.V[1] > 0 & corpo[i]->segmento[j]->elemento[k]->centro[0] < corpo[i]->CM.V[0])
-											{
-												torque1y = -torque1y;
-											}
-											else if (Fny.V[1] < 0 & corpo[i]->segmento[j]->elemento[k]->centro[0] > corpo[i]->CM.V[0])
-											{
-												torque1y = -torque1y;
+												torque1 = -torque1;
 											}
 
-										}
-										corpo[i]->torque += torque1x + torque1y;
-
-
-
-
-										//corpo 2
-										R2.V[0] = corpo[nc]->segmento[na]->elemento[ne]->centro[0] - corpo[nc]->CM.V[0];
-										R2.V[1] = corpo[nc]->segmento[na]->elemento[ne]->centro[1] - corpo[nc]->CM.V[1];
-										
-										if (Fn.V[0] == 0)
-										{
-											torque2x = 0;
-										}
-										else
-										{
-											F2nx.V[0] = -Fn.V[0];
-											F2nx.V[1] = 0;
-
-											ang2x = acos((F2nx*R2) / (R2.norm()*F2nx.norm()));
-											torque2x = F2nx.norm()*R2.norm()*sin(ang2x);
-
-											if (F2nx.V[0] > 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[1])
+											if (Fn.V[1] > 0 & corpo[i]->segmento[j]->elemento[k]->centro[0] < corpo[i]->CM.V[0])
 											{
-												torque2x = -torque2x;
+												torque1 = -torque1;
 											}
-											else if (F2nx.V[0] < 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] < corpo[nc]->CM.V[1])
+											else if (Fn.V[1] < 0 & corpo[i]->segmento[j]->elemento[k]->centro[0] > corpo[i]->CM.V[0])
 											{
-												torque2x = -torque2x;
+												torque1 = -torque1;
 											}
 
 
-										}
 
-										//eixo y
 
-										if (Fn.V[1] == 0)
-										{
-											torque2y = 0;
-										}
-										else
-										{
-											F2ny.V[0] = 0;
-											F2ny.V[1] = -Fn.V[1];
 
-											ang2y = acos((F2ny*R2) / (R2.norm()*F2ny.norm()));
-											torque2y = F2ny.norm()*R2.norm()*sin(ang2y);
+											corpo[i]->torque += torque1;
 
-											if (F2ny.V[1] > 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[0] < corpo[nc]->CM.V[0])
+
+
+
+											//corpo 2
+											R2.V[0] = corpo[nc]->segmento[na]->elemento[ne]->centro[0] - corpo[nc]->CM.V[0];
+											R2.V[1] = corpo[nc]->segmento[na]->elemento[ne]->centro[1] - corpo[nc]->CM.V[1];
+
+
+
+
+											ang2x = acos(-1 * (Fn*R2) / (R2.norm()*Fn.norm()));
+											torque2 = Fn.norm()*R2.norm()*sin(ang2x);
+
+											if (Fn.V[0] < 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[1])
 											{
-												torque2y = -torque2y;
+												torque2 = -torque2;
 											}
-											else if (F2ny.V[1] < 0 & corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[0])
+											else if (Fn.V[0] > 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[1] < corpo[nc]->CM.V[1])
 											{
-												torque2y = -torque2y;
+												torque2 = -torque2;
 											}
+											if (Fn.V[1] < 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[0] < corpo[nc]->CM.V[0])
+											{
+												torque2 = -torque2;
+											}
+											else if (Fn.V[1] > 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[0])
+											{
+												torque2 = -torque2;
+											}
+
+
+
+
+
+
+
+											corpo[nc]->torque += torque2;
+
+
+											corpo[i]->Fcont = corpo[i]->Fcont + Fn;
+											corpo[nc]->Fcont = corpo[nc]->Fcont - Fn;
+
+											Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio + corpo[nc]->segmento[na]->raio - D, 2);
+
+
+
 										}
-
-										corpo[nc]->torque += torque2x + torque2y;
-
-
-										corpo[i]->Fcont = corpo[i]->Fcont + Fn;
-										corpo[nc]->Fcont = corpo[nc]->Fcont - Fn;
-
-										Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio + corpo[nc]->segmento[na]->raio - D, 2);
 
 
 
 									}
 
-
-
 								}
 
 							}
-						
-						}
-								
 
 
 
-							}
+
 						}
 					}
 				}
-
 			}
+
+		}
+	}
 		return Eelas;
 }
 	
