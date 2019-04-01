@@ -2,6 +2,7 @@
 #include <iostream>
 #include "leituradedados.h"
 #include "sistema.h"
+
 int main(int argc, char* argv)
 {
 	sistema* Dados;

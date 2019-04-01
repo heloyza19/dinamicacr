@@ -6,7 +6,7 @@ c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\leiturad
 c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'Kn': variável local não referenciada
 c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'H': variável local não referenciada
 c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'temp': variável local não referenciada
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(15): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(28): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(16): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(29): warning C4018: '<': incompatibilidade de signed/unsigned
 c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(110): warning C4715: 'leituradedados': nem todos os caminhos de controle retornam um valor
   dinamica.vcxproj -> C:\Users\heloy\Documents\GitHub\dinamicacr\DinamicaCR\dinamica\Debug\dinamica.exe

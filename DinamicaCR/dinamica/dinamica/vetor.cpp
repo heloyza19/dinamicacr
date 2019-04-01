@@ -8,7 +8,7 @@ using namespace std;
 vetor::vetor(int t)
 {
 	size = t;
-	double *V = new double(t);
+	double *V = new double[t];
 }
 
 

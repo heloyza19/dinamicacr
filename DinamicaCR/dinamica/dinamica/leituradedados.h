@@ -22,7 +22,7 @@ sistema* leituradedados(int argc, char* argv)
 		{
 			label = "";
 			input >> label;
-			cout << label;
+	
 			if (label == "numerodecorpos")
 			{
 		

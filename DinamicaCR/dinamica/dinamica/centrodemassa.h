@@ -53,5 +53,4 @@ void corporigido::centrodemassa()
 
 
 
-
 }
