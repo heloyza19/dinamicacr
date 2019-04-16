@@ -145,7 +145,7 @@ double sistema::contato()
 										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1]) / D;
 
 										Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, corpo[nc]->velocidade, corpo[i]->segmento[j]->raio, corpo[nc]->segmento[na]->raio, D);
-										Fn.print();
+										
 										//corpo 1
 
 										R1.V[0] = corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[i]->CM.V[0];

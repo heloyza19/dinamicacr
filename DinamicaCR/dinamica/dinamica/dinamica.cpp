@@ -2,6 +2,8 @@
 #include <iostream>
 #include "leituradedados.h"
 #include "sistema.h"
+#include "saida.h"
+
 
 int main(int argc, char* argv)
 {
@@ -37,7 +39,7 @@ int main(int argc, char* argv)
 		
 		Dados->integracao();
 		Dados->setmapa();
-
+		saida(Dados, t);
 	
 
 		

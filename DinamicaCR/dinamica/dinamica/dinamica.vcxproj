@@ -165,6 +165,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="ponto.h" />
     <ClInclude Include="pontointerno.h" />
+    <ClInclude Include="saida.h" />
     <ClInclude Include="sistema.h" />
     <ClInclude Include="vetor.h" />
   </ItemGroup>
