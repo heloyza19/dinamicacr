@@ -156,6 +156,7 @@
     <ClInclude Include="centrodemassa.h" />
     <ClInclude Include="contato.h" />
     <ClInclude Include="corporigido.h" />
+    <ClInclude Include="dadosaida.h" />
     <ClInclude Include="densidade.h" />
     <ClInclude Include="elementodiscreto.h" />
     <ClInclude Include="id.h" />
@@ -165,7 +166,6 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="ponto.h" />
     <ClInclude Include="pontointerno.h" />
-    <ClInclude Include="saida.h" />
     <ClInclude Include="sistema.h" />
     <ClInclude Include="vetor.h" />
   </ItemGroup>
@@ -173,6 +173,7 @@
     <ClCompile Include="aresta.cpp" />
     <ClCompile Include="campo.cpp" />
     <ClCompile Include="corporigido.cpp" />
+    <ClCompile Include="dadosaida.cpp" />
     <ClCompile Include="dinamica.cpp" />
     <ClCompile Include="elementodiscreto.cpp" />
     <ClCompile Include="id.cpp" />

@@ -2,12 +2,14 @@
 #include <iostream>
 #include "leituradedados.h"
 #include "sistema.h"
-#include "saida.h"
+#include "dadosaida.h"
 
 
 int main(int argc, char* argv)
 {
 	sistema* Dados;
+	dadosaida saida("saida.xdmf");
+
 	Dados = leituradedados(argc, argv);
 	
 
@@ -19,8 +21,8 @@ int main(int argc, char* argv)
 	double* Eelas = new double[temp];
 	double* Ek = new double[temp];
 	double* Ekr = new double[temp];
-
-	for (int t=0; t < temp; t++)
+	saida.salvar(Dados, 0);
+	for (int t=0; t < 3; t++)
 	{	
 
 		Ek[t] = 0;
@@ -39,7 +41,7 @@ int main(int argc, char* argv)
 		
 		Dados->integracao();
 		Dados->setmapa();
-		saida(Dados, t);
+		//saida.salvar(Dados, t);
 	
 
 		

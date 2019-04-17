@@ -8,10 +8,12 @@ using namespace std;
 void saida(sistema* Dados, int t)
 {
 	ofstream myfile;
-	myfile.open("saida.xdmf");
+	myfile.open("saida.xdmf", ios::out);
 
 	if (t == 0)
 	{
+		/*ofstream myfile;
+		myfile.open("saida.xdmf", ios::out);*/
 		myfile << "< ? xml version = " << '"' << "1.0" << '"' << " ? >\n" << "<!DOCTYPE Xdmf SYSTEM" << '"' << "Xdmf.dtd" << '"' << " [] >\n";
 		myfile << "<Xdmf Version = " << '"' << "2.0" << '"' << "xmlns:xi = " << '"' << "[http://www.w3.org/2001/XInclude]" << '"' << ">\n";
 		myfile << "<Domain>\n";
