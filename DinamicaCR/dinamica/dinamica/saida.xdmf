@@ -1,0 +1,398 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version = "2.0" xmlns:xi = "[http://www.w3.org/2001/XInclude]">
+<Domain>
+<Grid CollectionType="Temporal" GridType="Collection" Name="Collection">
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="0"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1 1
+1 2
+2 2
+2 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+3 1
+3 2
+4 2
+4 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="1"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.00200998"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.0804 1
+1.0804 2
+2.0804 2
+2.0804 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.00200998"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.9196 1
+2.9196 2
+3.9196 2
+3.9196 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="2"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.00401995"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.1608 1
+1.1608 2
+2.1608 2
+2.1608 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.00401995"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.8392 1
+2.8392 2
+3.8392 2
+3.8392 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="3"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.00602993"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.2412 1
+1.2412 2
+2.2412 2
+2.2412 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.00602993"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.7588 1
+2.7588 2
+3.7588 2
+3.7588 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="4"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.0080399"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.3216 1
+1.3216 2
+2.3216 2
+2.3216 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.0080399"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.6784 1
+2.6784 2
+3.6784 2
+3.6784 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="5"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.0100499"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.402 1
+1.402 2
+2.402 2
+2.402 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.0100499"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.598 1
+2.598 2
+3.598 2
+3.598 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="6"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.0120599"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.48239 1
+1.48239 2
+2.48239 2
+2.48239 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.0120599"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.51761 1
+2.51761 2
+3.51761 2
+3.51761 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="7"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.0140698"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.56279 1
+1.56279 2
+2.56279 2
+2.56279 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.0140698"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.43721 1
+2.43721 2
+3.43721 2
+3.43721 1
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="8"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.0160798"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.65946 1.0254
+1.65367 2.02535
+2.65366 2.03114
+2.65945 1.03119
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.0160798"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.32889 0.997652
+2.32311 1.9976
+3.32309 2.00339
+3.32888 1.00344
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+<Grid Name="Grid" GridType="Collection" CollectionType="Spatial">
+<Time Value="9"/>
+<Grid Name = "corpo0" GridType = "Uniform">
+<Time Value = "0.0180898"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+1.7408 1.09081
+1.69536 2.08817
+2.69433 2.13357
+2.73977 1.13621
+
+</DataItem>
+</Geometry>
+</Grid>
+
+<Grid Name = "corpo1" GridType = "Uniform">
+<Time Value = "0.0180898"/>
+<Topology TopologyType = "Polygon" NodesPerElement = "4">
+<DataItem Format="XML" Dimensions="1 4">
+0 1 2 3 
+</DataItem >
+</Topology>
+<Geometry GeometryType="XY">
+<DataItem Format = "XML" Dimensions = "1 4 2">
+2.16162 1.09039
+2.11383 2.08745
+3.11269 2.1352
+3.16048 1.13814
+
+</DataItem>
+</Geometry>
+</Grid>
+
+</Grid>
+</Grid>
+</Domain>
+</Xdmf>

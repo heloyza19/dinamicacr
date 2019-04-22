@@ -20,6 +20,8 @@ sistema::sistema()
 sistema::~sistema()
 {
 	delete[] mapa;
+	delete[] *mapa;
+
 }
 
 void sistema::setdx()

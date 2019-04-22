@@ -21,10 +21,11 @@ int main(int argc, char* argv)
 	double* Eelas = new double[temp];
 	double* Ek = new double[temp];
 	double* Ekr = new double[temp];
-	saida.salvar(Dados, 0);
-	for (int t=0; t < 3; t++)
-	{	
 
+
+	for (int t=0; t <temp;t++)
+	{	
+		saida.salvar(Dados, t);
 		Ek[t] = 0;
 		Ekr[t] = 0;
 		Eelas[t]=Dados->contato();
@@ -37,11 +38,10 @@ int main(int argc, char* argv)
 			
 		}
 		
-		//cout <<"Energia cinética= "<< Ek[t]<<" Eelas= "<<Eelas[t]<<" Ekr= "<<Ekr[t] << endl;
 		
 		Dados->integracao();
 		Dados->setmapa();
-		//saida.salvar(Dados, t);
+		
 	
 
 		
