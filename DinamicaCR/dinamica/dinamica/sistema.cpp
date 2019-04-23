@@ -76,14 +76,9 @@ void sistema::integracao()
 	{
 		
 		corpo[i]->velocidade = (corpo[i]->Fcont + corpo[i]->Fext)*(dt / corpo[i]->massa) + corpo[i]->velocidade;
-		
-	/*	
-		if (corpo[i]->Fcont.norm()>0)
-		{
-			corpo[i]->posicao.print();
-		}*/
-		corpo[i]->W =corpo[i]->torque*(dt / corpo[i]->I) + corpo[i]->W;
-		cout <<"torque= "<< corpo[i]->torque << endl;
+		corpo[i]->Fcont.zeros();
+
+		corpo[i]->W = corpo[i]->torque*(dt / corpo[i]->I) + corpo[i]->W;
 		corpo[i]->torque = 0;
 	
 		//Rotação
@@ -116,13 +111,6 @@ void sistema::integracao()
 
 		//Translacao
 		corpo[i]->CM = corpo[i]->velocidade*dt + corpo[i]->CM;
-
-
-		if (corpo[i]->Fcont.norm() > 0)
-		{
-			corpo[i]->posicao.print();
-		}
-		corpo[i]->Fcont.zeros();
 	}
 }
 

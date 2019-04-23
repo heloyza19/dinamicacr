@@ -8,7 +8,7 @@ double sistema::contato()
 	double Eelas = 0;
 	double torque1 = 0;
 	double torque2 = 0;
-	double ang1x, ang1y, ang2x, ang2y;
+	double ang1x=0,ang1y=0, ang2x=0, ang2y=0;
 	int Px, Py;
 	int* P;
 	double D;
@@ -41,7 +41,7 @@ double sistema::contato()
 					Vnormal.V[1] = 0;
 
 					Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, Vel2, corpo[i]->segmento[j]->raio, 0, corpo[i]->segmento[j]->elemento[k]->centro[0]);
-				
+
 					Fr = corpo[i]->Fcont + Fn;
 					corpo[i]->Fcont.setV(Fr.getV());
 					Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio - corpo[i]->segmento[j]->elemento[k]->centro[0], 2);
@@ -125,7 +125,7 @@ double sistema::contato()
 					{
 						if (mapa[Px + A][Py + B].idelement.size() > 0)
 						{
-							for (std::list<id>::iterator it=mapa[Px + A][Py + B].idelement.begin(); it!=mapa[Px + A][Py + B].idelement.end(); it++)
+							for (std::list<id>::iterator it = mapa[Px + A][Py + B].idelement.begin(); it != mapa[Px + A][Py + B].idelement.end(); it++)
 							{
 
 								nc = (*it).c;     //n corpo rigido
@@ -133,9 +133,6 @@ double sistema::contato()
 								{
 									na = (*it).s;  //n aresta
 									ne = (*it).n;   //n do elementodiscreto
-							/*	cout << "contato"<<endl;
-								cout << i << " " << j << " " << k << endl;
-								cout << nc << " " << na << " " << ne << endl;*/
 
 									D = sqrt(pow(corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0], 2) + pow(corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1], 2));
 
@@ -144,14 +141,13 @@ double sistema::contato()
 
 										Vnormal.V[0] = (corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0]) / D;
 										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1]) / D;
-										
+
 										Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, corpo[nc]->velocidade, corpo[i]->segmento[j]->raio, corpo[nc]->segmento[na]->raio, D);
-										Fn.print();
+
 										//corpo 1
 
 										R1.V[0] = corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[i]->CM.V[0];
 										R1.V[1] = corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[i]->CM.V[1];
-
 
 
 										//eixo x
@@ -161,20 +157,20 @@ double sistema::contato()
 											ang1x = acos((Fn*R1) / (R1.norm()*Fn.norm()));
 											torque1 = Fn.norm()*R1.norm()*sin(ang1x);
 
-											if (Fn.V[0] > 0 && corpo[i]->segmento[j]->elemento[k]->centro[1] > corpo[i]->CM.V[1])
+											if (Fn.V[0] < 0 && corpo[i]->segmento[j]->elemento[k]->centro[1] > corpo[i]->CM.V[1])
 											{
 												torque1 = -torque1;
 											}
-											else if (Fn.V[0] < 0 && corpo[i]->segmento[j]->elemento[k]->centro[1] < corpo[i]->CM.V[1])
+											else if (Fn.V[0] > 0 && corpo[i]->segmento[j]->elemento[k]->centro[1] < corpo[i]->CM.V[1])
 											{
 												torque1 = -torque1;
 											}
 
-											if (Fn.V[1] > 0 && corpo[i]->segmento[j]->elemento[k]->centro[0] < corpo[i]->CM.V[0])
+											if (Fn.V[1] < 0 && corpo[i]->segmento[j]->elemento[k]->centro[0] < corpo[i]->CM.V[0])
 											{
 												torque1 = -torque1;
 											}
-											else if (Fn.V[1] < 0 && corpo[i]->segmento[j]->elemento[k]->centro[0] > corpo[i]->CM.V[0])
+											else if (Fn.V[1] > 0 && corpo[i]->segmento[j]->elemento[k]->centro[0] > corpo[i]->CM.V[0])
 											{
 												torque1 = -torque1;
 											}
@@ -188,24 +184,28 @@ double sistema::contato()
 											ang2x = acos(-1 * (Fn*R2) / (R2.norm()*Fn.norm()));
 											torque2 = Fn.norm()*R2.norm()*sin(ang2x);
 
-											if (Fn.V[0] < 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[1])
+											if (Fn.V[0] > 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[1])
 											{
 												torque2 = -torque2;
 											}
-											else if (Fn.V[0] > 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[1] < corpo[nc]->CM.V[1])
+											else if (Fn.V[0] < 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[1] < corpo[nc]->CM.V[1])
 											{
 												torque2 = -torque2;
 											}
-											if (Fn.V[1] < 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[0] < corpo[nc]->CM.V[0])
+											if (Fn.V[1] > 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[0] < corpo[nc]->CM.V[0])
 											{
 												torque2 = -torque2;
 											}
-											else if (Fn.V[1] > 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[1] > corpo[nc]->CM.V[0])
+											else if (Fn.V[1] < 0 && corpo[nc]->segmento[na]->elemento[ne]->centro[0] > corpo[nc]->CM.V[0])
 											{
 												torque2 = -torque2;
 											}
 
 											corpo[nc]->torque += torque2;
+
+
+
+
 
 											corpo[i]->Fcont = corpo[i]->Fcont + Fn;
 											corpo[nc]->Fcont = corpo[nc]->Fcont - Fn;
