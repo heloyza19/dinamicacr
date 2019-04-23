@@ -10,8 +10,8 @@ public:
 	vector <corporigido*> corpo;  
 	campo** mapa;
 
-	double L, H, dx,dt, Kn, Cn, times;
-	double e;
+	double L, H, dx,dt, Kn, Cn, times,ni; //largura, altura, dx do grid, dt, constante da mola, constante de amortecimento, tempo de simulacao, numero de impressoes
+	double e; //percentual do tempo critico
 	sistema();
 	~sistema();
 

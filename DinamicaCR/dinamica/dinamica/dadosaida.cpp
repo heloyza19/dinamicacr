@@ -2,10 +2,10 @@
 #include "dadosaida.h"
 
 
-dadosaida::dadosaida(string filename)
+dadosaida::dadosaida(string filename, int n)
 {
 	myfile.open(filename, ios::out);
-
+	ni = n;
 
 }
 
@@ -29,31 +29,34 @@ void dadosaida:: salvar(sistema* Dados, int t)
 	}
 	myfile << "<Grid Name=" << '"' << "Grid" << '"' << " GridType=" << '"' << "Collection" << '"' << " CollectionType=" << '"' << "Spatial" << '"' << ">\n";
 	myfile << "<Time Value=" << '"' << t << '"' << "/>\n";
-	//myfile << "<Grid Name = " << '"' << "poligono1" << '" ' << "GridType = " << '"' << "Uniform" << '"' << ">\n";
 
-
-	for (int i = 0; i < Dados->corpo.size(); i++)
+	int p = ceil(Dados->times / Dados->dt) / ni;
+	
+	if (t == 0 || t == (ceil(Dados->times / Dados->dt) - 1) || t % p = 0)
 	{
-		myfile << "<Grid Name = " << '"' << "corpo" << i << '"' << " GridType = " << '"' << "Uniform" << '"' << ">\n";
-		myfile << "<Time Value = " << '"' << t * Dados->dt << '"' << "/>\n";
-		myfile << "<Topology TopologyType = " << '"' << "Polygon" << '"' << " NodesPerElement = " << '"' << Dados->corpo[i]->segmento.size()<< '"' << ">\n";
-		myfile << "<DataItem Format=" << '"' << "XML" << '"' << " Dimensions=" << '"' << "1 "<< Dados->corpo[i]->segmento.size() << '"' << ">\n";
-
-		for (int j = 0; j < Dados->corpo[i]->posicao.size[0]; j++)
+		for (int i = 0; i < Dados->corpo.size(); i++)
 		{
-			myfile << j << " ";
-		}
-		myfile << "\n" << "</DataItem >\n" << "</Topology>\n" << "<Geometry GeometryType=" << '"' << "XY" << '"' << ">\n";
-		myfile << "<DataItem Format = " << '"' << "XML" << '"' << " Dimensions = " <<'"'<< "1 " << Dados->corpo[i]->segmento.size() << " 2" << '"' << ">\n";
-		for (int j = 0; j < Dados->corpo[i]->posicao.size[0]; j++)
-		{
-			myfile << Dados->corpo[i]->posicao.M[j][0] << " " << Dados->corpo[i]->posicao.M[j][1] << "\n";
-		}
-		myfile << "\n" << "</DataItem>\n" << "</Geometry>\n" << "</Grid>\n" << "\n";
+			myfile << "<Grid Name = " << '"' << "corpo" << i << '"' << " GridType = " << '"' << "Uniform" << '"' << ">\n";
+			myfile << "<Time Value = " << '"' << t * Dados->dt << '"' << "/>\n";
+			myfile << "<Topology TopologyType = " << '"' << "Polygon" << '"' << " NodesPerElement = " << '"' << Dados->corpo[i]->segmento.size() << '"' << ">\n";
+			myfile << "<DataItem Format=" << '"' << "XML" << '"' << " Dimensions=" << '"' << "1 " << Dados->corpo[i]->segmento.size() << '"' << ">\n";
 
+			for (int j = 0; j < Dados->corpo[i]->posicao.size[0]; j++)
+			{
+				myfile << j << " ";
+			}
+			myfile << "\n" << "</DataItem >\n" << "</Topology>\n" << "<Geometry GeometryType=" << '"' << "XY" << '"' << ">\n";
+			myfile << "<DataItem Format = " << '"' << "XML" << '"' << " Dimensions = " << '"' << "1 " << Dados->corpo[i]->segmento.size() << " 2" << '"' << ">\n";
+			for (int j = 0; j < Dados->corpo[i]->posicao.size[0]; j++)
+			{
+				myfile << Dados->corpo[i]->posicao.M[j][0] << " " << Dados->corpo[i]->posicao.M[j][1] << "\n";
+			}
+			myfile << "\n" << "</DataItem>\n" << "</Geometry>\n" << "</Grid>\n" << "\n";
+
+		}
+
+		myfile << "</Grid>\n";
 	}
-
-	myfile << "</Grid>\n";
 	if (t == (ceil(Dados->times / Dados->dt) - 1))
 	{
 		myfile <<"</Grid>\n" << "</Domain>\n" << "</Xdmf>\n";

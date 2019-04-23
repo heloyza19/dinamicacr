@@ -7,7 +7,8 @@ class dadosaida
 {
 public:
 	ofstream myfile;
-	dadosaida(string filename);
+	int ni;  //numero de impressoes
+	dadosaida(string filename, int n);
 	~dadosaida();
 	void salvar(sistema* Dados, int t);
 };

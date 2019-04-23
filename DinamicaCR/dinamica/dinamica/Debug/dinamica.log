@@ -1,18 +1,58 @@
-﻿  sistema.cpp
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(29): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(31): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(31): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(44): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(46): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(56): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(57): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(58): warning C4101: 'C': variável local não referenciada
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(75): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(86): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(120): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(121): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(130): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(131): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(145): warning C4018: '<': incompatibilidade de signed/unsigned
-c:\users\heloy\documents\github\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(147): warning C4018: '<': incompatibilidade de signed/unsigned
-  dinamica.vcxproj -> C:\Users\heloy\Documents\GitHub\dinamicacr\DinamicaCR\dinamica\Debug\dinamica.exe
+﻿  pch.cpp
+  aresta.cpp
+  campo.cpp
+  corporigido.cpp
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\pontointerno.h(16): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\pontointerno.h(45): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\pontointerno.h(57): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\centrodemassa.h(19): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\centrodemassa.h(20): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+  dadosaida.cpp
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\dadosaida.cpp(35): warning C4018: '<': incompatibilidade de signed/unsigned
+  dinamica.cpp
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(82): warning C4244: 'argumento': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'L': variável local não referenciada
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'p': variável local não referenciada
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'Cn': variável local não referenciada
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'Kn': variável local não referenciada
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'H': variável local não referenciada
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(17): warning C4101: 'temp': variável local não referenciada
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(22): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\dinamica.cpp(39): warning C4018: '<': incompatibilidade de signed/unsigned
+  elementodiscreto.cpp
+  id.cpp
+  matriz.cpp
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\matriz.cpp(162): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\matriz.cpp(188): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+  ponto.cpp
+  sistema.cpp
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(29): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\contato.h(31): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(31): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(44): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(46): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(56): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(57): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(58): warning C4101: 'C': variável local não referenciada
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(75): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(86): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(120): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(121): warning C4244: '=': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(130): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(131): warning C4244: 'inicializando': conversão de 'double' para 'int', possível perda de dados
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(145): warning C4018: '<': incompatibilidade de signed/unsigned
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\sistema.cpp(147): warning C4018: '<': incompatibilidade de signed/unsigned
+  vetor.cpp
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\vetor.cpp(177): warning C4554: '&': verifique a precedência de operador para possível erro; use parênteses para esclarecer a precedência
+  Gerando Código...
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\vetor.cpp(173): warning C4715: 'vetor::operator*': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\vetor.cpp(194): warning C4715: 'vetor::cross': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\vetor.cpp(133): warning C4715: 'vetor::operator+': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\vetor.cpp(155): warning C4715: 'vetor::operator-': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\matriz.cpp(183): warning C4715: 'matriz::operator+': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\matriz.cpp(210): warning C4715: 'matriz::operator-': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\matriz.cpp(241): warning C4715: 'matriz::operator*': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\matriz.cpp(291): warning C4715: 'matriz::operator*': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\leituradedados.h(110): warning C4715: 'leituradedados': nem todos os caminhos de controle retornam um valor
+c:\users\heloyza\documents\github\dinamica-2d-cpp\dinamicacr\dinamicacr\dinamica\dinamica\pontointerno.h(70): warning C4715: 'corporigido::pontointerno': nem todos os caminhos de controle retornam um valor
+  dinamica.vcxproj -> C:\Users\Heloyza\Documents\GitHub\Dinamica-2D-cpp\dinamicacr\DinamicaCR\dinamica\Debug\dinamica.exe

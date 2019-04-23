@@ -15,6 +15,7 @@ sistema* leituradedados(int argc, char* argv)
 	sistema* Dados=new sistema();
 
 	double temp, p,L, H, Kn, Cn;
+	int ni;
 	if (input.is_open())
 	{
 		int nc;
@@ -23,13 +24,7 @@ sistema* leituradedados(int argc, char* argv)
 			label = "";
 			input >> label;
 	
-			if (label == "numerodecorpos")
-			{
-		
-				input >> nc;
-
-			}
-			else if (label == "dadossistema(L-H-Kn-Cn)")
+			if (label == "#DADOSDOSISTEMA")
 			{
 				
 				input >> Dados->L;
@@ -39,15 +34,15 @@ sistema* leituradedados(int argc, char* argv)
 
 				
 			}
-			else if (label == "dadostemp(temp-%tc)")
+			else if (label == "#DADOSTEMPORAIS")
 			{
 
 				input >> Dados->times;
 				input >> Dados->e;
 			}
-			else if (label == "dadoscr(np-coor-ro-velx-vely-w-ned-fx-fy)")
+			else if (label == "#DADOSDOSCORPOSRIGIDOS")
 			{
-				
+				input >> nc;
 				for (int i = 0; i < nc; i++)
 				{
 					
@@ -86,8 +81,13 @@ sistema* leituradedados(int argc, char* argv)
 
 				
 			}
+			else if (label == "#IMPRESSAO")
+			{
 
-			else if (label == "end")
+				input >> ni;
+			}
+
+			else if (label == "#END")
 			{
 				break;
 

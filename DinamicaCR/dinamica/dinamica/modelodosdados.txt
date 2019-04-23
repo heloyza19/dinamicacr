@@ -1,0 +1,9 @@
+#DADOSDOSISTEMA
+(Lado) (Altura) (Constante da mola) (Constante de amortecimento)
+
+#DADOSTEMPORAIS
+(tempo de simulaçao) (percentural do tempo crítico)
+
+#DADOSDOSCORPOSRIGIDOS
+(número de corpos rígidos)
+(número de vértices(n))   (n coordenadas xy das arestas)   (massa específica)  (velocidade em x) (vel em y) (número de elementos discretos) (Força x) (Força y) 

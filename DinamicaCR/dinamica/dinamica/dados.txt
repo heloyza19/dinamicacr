@@ -1,16 +1,16 @@
-numerodecorpos
-2
-
-dadossistema(L-H-Kn-Cn)
+#DADOSDOSISTEMA
 5 5 100000 0
 
-dadostemp(temp-%tc)
-0.02  0.001
+#DADOSTEMPORAIS
+0.02  0.01
 
 
-dadoscr(np-coor-ro-velx-vely-w-ned-fx-fy)
+#DADOSDOSCORPOSRIGIDOS
 4 1.0 1.0 1.0 2.0 2.0 2.0 2.0 1.0  1 40 0 0 10 0 0
 4 3.0 1.0 3.0 2.0 4.0 2.0 4.0 1.0  1 -40 0 0 10 0 0
 
+#IMPRESSAO
+20
 
-end
+
+#end
