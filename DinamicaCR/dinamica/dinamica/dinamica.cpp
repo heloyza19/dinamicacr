@@ -16,6 +16,8 @@ int main(int argc, char* argv)
 	cout << "dx=" << Dados->dx << endl;
 	cout <<"dt= "<< Dados->dt << endl;
 	cout << "tc= " << Dados->dt / Dados->e<<endl;
+	cout << "massa0= " << Dados->corpo[0]->massa << endl;
+	cout << "massa1= " << Dados->corpo[1]->massa << endl;
 
 	int temp = ceil(Dados->times / Dados->dt);
 	double* Eelas = new double[temp];
@@ -25,6 +27,31 @@ int main(int argc, char* argv)
 
 	for (int t=0; t <temp;t++)
 	{	
+
+		/*for (int i = 0; i < Dados->corpo.size(); i++)
+		{
+			cout << "corpo" << i << endl;
+			for (int j = 0; j < Dados->corpo[i]->segmento.size(); j++)
+			{
+				for (int k = 0; k < Dados->corpo[i]->Ned; k++)
+				{
+
+					cout << Dados->corpo[i]->segmento[j]->elemento[k]->centro[0] << " " << Dados->corpo[i]->segmento[j]->elemento[k]->centro[1] << endl;
+
+
+
+
+				}
+			}
+			cout << endl;
+		}*/
+
+
+
+
+
+
+
 		saida.salvar(Dados, t);
 		Ek[t] = 0;
 		Ekr[t] = 0;
@@ -40,11 +67,7 @@ int main(int argc, char* argv)
 		
 		
 		Dados->integracao();
-		Dados->setmapa();
-		
-	
-
-		
+		Dados->setmapa();	
 
 	}
 	cout << "energia final k r e= " << Ek[0]<<" "<< Ekr[0]<<" "<< Eelas[0] << endl;

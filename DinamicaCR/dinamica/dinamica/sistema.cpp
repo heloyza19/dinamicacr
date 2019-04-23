@@ -20,7 +20,7 @@ sistema::sistema()
 sistema::~sistema()
 {
 	delete[] mapa;
-	delete[] *mapa;
+	
 
 }
 
@@ -51,6 +51,21 @@ void sistema::setdx()
 			}	
 		}
 	}
+
+
+	int N = ceil(L / dx);
+	int M = ceil(H / dx);
+	int* C;
+	mapa = new campo*[N];
+	for (int i = 0; i < N; i++)
+	{
+		mapa[i] = new campo[M];
+	}
+
+
+
+
+
 }
 
 
@@ -61,11 +76,19 @@ void sistema::integracao()
 	{
 		
 		corpo[i]->velocidade = (corpo[i]->Fcont + corpo[i]->Fext)*(dt / corpo[i]->massa) + corpo[i]->velocidade;
-		corpo[i]->W = corpo[i]->torque*(dt / corpo[i]->I) + corpo[i]->W;
-
+		
+	/*	
+		if (corpo[i]->Fcont.norm()>0)
+		{
+			corpo[i]->posicao.print();
+		}*/
+		corpo[i]->W =corpo[i]->torque*(dt / corpo[i]->I) + corpo[i]->W;
+		cout <<"torque= "<< corpo[i]->torque << endl;
+		corpo[i]->torque = 0;
+	
 		//Rotação
 
-		for (int j = 0; j < corpo[i]->posicao.size[0]; j++)
+		for (int j = 0; j < corpo[i]->segmento.size(); j++)
 		{
 
 			//x1=x0*cos(dteta)-y0*sin(dteta)
@@ -76,7 +99,7 @@ void sistema::integracao()
 			
 
 
-			for (int k = 0; k < corpo[i]->segmento[j]->elemento.size(); k++)
+			for (int k = 0; k < corpo[i]->Ned; k++)
 			{
 				x = corpo[i]->segmento[j]->elemento[k]->centro[0];
 				y = corpo[i]->segmento[j]->elemento[k]->centro[1];
@@ -94,15 +117,18 @@ void sistema::integracao()
 		//Translacao
 		corpo[i]->CM = corpo[i]->velocidade*dt + corpo[i]->CM;
 
-		
+
+		if (corpo[i]->Fcont.norm() > 0)
+		{
+			corpo[i]->posicao.print();
+		}
 		corpo[i]->Fcont.zeros();
-		corpo[i]->torque = 0;
 	}
 }
 
 int* sistema::mapeamento(double x, double y)
 {
-	int* C = new int(2);
+	int* C = new int[2];
 	C[0] = floor(x / dx);
 	C[1] = floor(y / dx);
 
@@ -112,15 +138,20 @@ int* sistema::mapeamento(double x, double y)
 
 void sistema::setmapa()
 {
+
 	int N = ceil(L / dx);
 	int M = ceil(H / dx);
 	int* C;
 	id ID;
 
-	mapa = new campo*[N];
-	for (int i = 0; i < N; i++)
-	{
-		mapa[i] = new campo[M];
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++)
+		{
+			
+			mapa[i][j].idelement.clear();
+	
+				
+		}
 	}
 
 	for (int i = 0; i < corpo.size(); i++)

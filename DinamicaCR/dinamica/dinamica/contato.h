@@ -13,7 +13,7 @@ double sistema::contato()
 	int* P;
 	double D;
 	int nc, na, ne;
-	int* ID;
+	//int* ID;
 
 	vetor Vnormal(2), Fn(2), Fr(2),R1(2),R2(2),Fnx(2),Fny(2), F2nx(2), F2ny(2);
 	Vnormal.zeros();
@@ -125,25 +125,26 @@ double sistema::contato()
 					{
 						if (mapa[Px + A][Py + B].idelement.size() > 0)
 						{
-							for (std::list<id>::iterator it = mapa[Px + A][Py + B].idelement.begin(); it != mapa[Px + A][Py + B].idelement.end(); it++)
+							for (std::list<id>::iterator it=mapa[Px + A][Py + B].idelement.begin(); it!=mapa[Px + A][Py + B].idelement.end(); it++)
 							{
 
 								nc = (*it).c;     //n corpo rigido
-								if (nc > i)   //analisar
+								if (nc < i)   //analisar
 								{
 									na = (*it).s;  //n aresta
 									ne = (*it).n;   //n do elementodiscreto
+							/*	cout << "contato"<<endl;
+								cout << i << " " << j << " " << k << endl;
+								cout << nc << " " << na << " " << ne << endl;*/
 
 									D = sqrt(pow(corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0], 2) + pow(corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1], 2));
 
 									if (D < (corpo[i]->segmento[j]->raio + corpo[nc]->segmento[na]->raio))
 									{
 
-
-
 										Vnormal.V[0] = (corpo[i]->segmento[j]->elemento[k]->centro[0] - corpo[nc]->segmento[na]->elemento[ne]->centro[0]) / D;
 										Vnormal.V[1] = (corpo[i]->segmento[j]->elemento[k]->centro[1] - corpo[nc]->segmento[na]->elemento[ne]->centro[1]) / D;
-
+										
 										Fn = Fnormal(Vnormal, Cn, Kn, corpo[i]->velocidade, corpo[nc]->velocidade, corpo[i]->segmento[j]->raio, corpo[nc]->segmento[na]->raio, D);
 										Fn.print();
 										//corpo 1
@@ -160,39 +161,29 @@ double sistema::contato()
 											ang1x = acos((Fn*R1) / (R1.norm()*Fn.norm()));
 											torque1 = Fn.norm()*R1.norm()*sin(ang1x);
 
-											if (Fn.V[0] > 0 & corpo[i]->segmento[j]->elemento[k]->centro[1] > corpo[i]->CM.V[1])
+											if (Fn.V[0] > 0 && corpo[i]->segmento[j]->elemento[k]->centro[1] > corpo[i]->CM.V[1])
 											{
 												torque1 = -torque1;
 											}
-											else if (Fn.V[0] < 0 & corpo[i]->segmento[j]->elemento[k]->centro[1] < corpo[i]->CM.V[1])
-											{
-												torque1 = -torque1;
-											}
-
-											if (Fn.V[1] > 0 & corpo[i]->segmento[j]->elemento[k]->centro[0] < corpo[i]->CM.V[0])
-											{
-												torque1 = -torque1;
-											}
-											else if (Fn.V[1] < 0 & corpo[i]->segmento[j]->elemento[k]->centro[0] > corpo[i]->CM.V[0])
+											else if (Fn.V[0] < 0 && corpo[i]->segmento[j]->elemento[k]->centro[1] < corpo[i]->CM.V[1])
 											{
 												torque1 = -torque1;
 											}
 
-
-
-
-
+											if (Fn.V[1] > 0 && corpo[i]->segmento[j]->elemento[k]->centro[0] < corpo[i]->CM.V[0])
+											{
+												torque1 = -torque1;
+											}
+											else if (Fn.V[1] < 0 && corpo[i]->segmento[j]->elemento[k]->centro[0] > corpo[i]->CM.V[0])
+											{
+												torque1 = -torque1;
+											}
 											corpo[i]->torque += torque1;
-
-
 
 
 											//corpo 2
 											R2.V[0] = corpo[nc]->segmento[na]->elemento[ne]->centro[0] - corpo[nc]->CM.V[0];
 											R2.V[1] = corpo[nc]->segmento[na]->elemento[ne]->centro[1] - corpo[nc]->CM.V[1];
-
-
-
 
 											ang2x = acos(-1 * (Fn*R2) / (R2.norm()*Fn.norm()));
 											torque2 = Fn.norm()*R2.norm()*sin(ang2x);
@@ -214,34 +205,19 @@ double sistema::contato()
 												torque2 = -torque2;
 											}
 
-
-
-
-
-
-
 											corpo[nc]->torque += torque2;
-
 
 											corpo[i]->Fcont = corpo[i]->Fcont + Fn;
 											corpo[nc]->Fcont = corpo[nc]->Fcont - Fn;
 
 											Eelas += 0.5*Kn*pow(corpo[i]->segmento[j]->raio + corpo[nc]->segmento[na]->raio - D, 2);
-
-
-
 										}
-
-
 
 									}
 
 								}
 
 							}
-
-
-
 
 						}
 					}
