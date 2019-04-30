@@ -3,9 +3,10 @@
 #include "centrodemassa.h"
 
 
-corporigido::corporigido(int np, double** pos, double* vel, double* F, double W) : Fext(2), Fcont(2), velocidade(2), CM(2), posicao(np, 2)
+corporigido::corporigido(int np, double** pos, double* vel, double* F, double W, double d) : Fext(2), Fcont(2), velocidade(2), CM(2), posicao(np, 2)
 {
 	this->W = W;
+	this->d = d;
 	posicao.setM(pos);
 	Fext.setV(F);
 	velocidade.setV(vel);

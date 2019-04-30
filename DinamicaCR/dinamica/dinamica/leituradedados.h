@@ -72,7 +72,7 @@ sistema* leituradedados(int argc, char* argv)
 					input >> F[0];
 					input >> F[1];
 
-					corporigido* corpo = new corporigido(np, pos, vel,F,w);
+					corporigido* corpo = new corporigido(np, pos, vel,F,w, densidade);
 					corpo->centrodemassa();
 					corpo->setsegmento(ned);
 					Dados->corpo.push_back(corpo);
@@ -97,8 +97,8 @@ sistema* leituradedados(int argc, char* argv)
 
 		}
 
-
-
+	
+		Dados->ni = ni;
 		Dados->setdx();
 		Dados->setmapa();
 		return Dados;

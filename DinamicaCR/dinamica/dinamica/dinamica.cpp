@@ -8,10 +8,10 @@
 int main(int argc, char* argv)
 {
 	sistema* Dados;
-	dadosaida saida("saida.xdmf");
+	
 
 	Dados = leituradedados(argc, argv);
-	
+	dadosaida saida("saida.xdmf", Dados->ni);
 
 	cout << "dx=" << Dados->dx << endl;
 	cout <<"dt= "<< Dados->dt << endl;

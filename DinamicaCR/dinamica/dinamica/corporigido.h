@@ -15,17 +15,16 @@ public:
 	vetor Fcont;
 	vetor CM;
 
-	//vetor pos_raio;  //retirar
-
-	double I;
-	double massa;
-	double W;
-	double torque;
-	int Ned;
+	double	d;		     //densidade
+	double I;	        //momento 
+	double massa;      //massa
+	double W;	      //velocidade angular
+	double torque;   //torque
+	int Ned;        //numero de elementos discretos 
 
 	vector <aresta*> segmento;
 
-	corporigido (int np,double** pos, double* vel, double* F, double W);
+	corporigido (int np,double** pos, double* vel, double* F, double W, double d);
 	~corporigido();
 
 	void centrodemassa();
